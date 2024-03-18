@@ -7,7 +7,7 @@ module.exports = {
   entry: "./src/index.ts",
   mode: "development",
   devServer: {
-    port: 3000,
+    port: 3002,
     open: true,
     headers: {
       "Access-Control-Allow-Origin": "*",
@@ -27,12 +27,12 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "container",
-        remotes: {
-          app1: 'app1@http://localhost:3001/remoteEntry.js',
-          app2: 'app2@http://localhost:3002/remoteEntry.js',
-          
-        },
+      name: "app2",
+      filename: "remoteEntry.js",
+      exposes: {
+        // expose each component
+        "./AppTwo": "./src/components/AppTwo",
+      },
       shared: {
         ...deps,
         react: { singleton: true, eager: true, requiredVersion: deps.react },
