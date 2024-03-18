@@ -3,6 +3,7 @@ import React from "react";
 // import { ContainerApp } from "./components/ContainerApp";
 
 const CounterAppOne = React.lazy(() => import("app1/CounterAppOne"));
+const AppTwo = React.lazy(() => import("app2/AppTwo"));
 // const CounterAppTwo = React.lazy(() => import("app2/CounterAppTwo"));
 
 const App = () => (
@@ -23,6 +24,7 @@ const App = () => (
 <div>
   <p>Conatiner</p>
   <CounterAppOne></CounterAppOne>
+  <AppTwo></AppTwo>
   {/* <CounterAppTwo></CounterAppTwo>  */}
 </div>
   </>
